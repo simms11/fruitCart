@@ -29,39 +29,39 @@ case class Checkout(pricingRules: Map[String, ItemPricingRule]) {
         b2= basket.filter( x => x._1 == "Apple" || x._1 == "Banana")
         b2.toList.map{ item =>
           val singlePrice = pricingRules.get(item._1).get.unitPrice
-        println(  (singlePrice, item))
+          println(  (singlePrice, item))
 
         }
       }
       case _ => basket
     }
-//    if(basket.keySet("Apple") || basket.keySet("Banana")){
-//     b2 = basket.filter( x => x._1 == "Apple" || x._1 == "Banana")
-////      println(     basket.filter( x => x._1 == "Apple" || x._1 == "Banana"))
-////      println(basket.filter( x => x._1 == "Apple" || x._1 == "Banana").min._2)
-//
-////      b2.toList.map{ item =>
-////        val singlePrice = pricingRules.get(item._1)
-////        calculateBasketItemPrice(singlePrice.get,  item._2)
-////
-////      }.sum.bigDecimal
-//
-//    }
-   // basket.filter( x => x._1 == "Apple" || x._1 == "Banana")
+    //    if(basket.keySet("Apple") || basket.keySet("Banana")){
+    //     b2 = basket.filter( x => x._1 == "Apple" || x._1 == "Banana")
+    ////      println(     basket.filter( x => x._1 == "Apple" || x._1 == "Banana"))
+    ////      println(basket.filter( x => x._1 == "Apple" || x._1 == "Banana").min._2)
+    //
+    ////      b2.toList.map{ item =>
+    ////        val singlePrice = pricingRules.get(item._1)
+    ////        calculateBasketItemPrice(singlePrice.get,  item._2)
+    ////
+    ////      }.sum.bigDecimal
+    //
+    //    }
+    // basket.filter( x => x._1 == "Apple" || x._1 == "Banana")
   }
 
-//  def checkItems(item1:String, item2:String):Map[String, Int] = {
-//  //  basket.keySet.contains("Apple")
-//    if(basket.keySet.contains(item1) && basket.keySet.contains(item2)){
-//      (basket.get(item1), basket.get(item2)) match {
-//        case (Some(x), Some(y)) if x < y => basket += (item1 -> (x - 1)); basket
-//        case (Some(y), Some(x)) if y < x => basket += (item2 -> (y - 1)); basket
-//        case _ => basket
-//      }
-//    }
-//    println(basket)
-//  basket
-//  }
+  //  def checkItems(item1:String, item2:String):Map[String, Int] = {
+  //  //  basket.keySet.contains("Apple")
+  //    if(basket.keySet.contains(item1) && basket.keySet.contains(item2)){
+  //      (basket.get(item1), basket.get(item2)) match {
+  //        case (Some(x), Some(y)) if x < y => basket += (item1 -> (x - 1)); basket
+  //        case (Some(y), Some(x)) if y < x => basket += (item2 -> (y - 1)); basket
+  //        case _ => basket
+  //      }
+  //    }
+  //    println(basket)
+  //  basket
+  //  }
 
   private def calculateBasketItemPrice(itemPricingRule: ItemPricingRule, totalQuantity: Int): BigDecimal = {
     itemPricingRule.discount
